@@ -45,7 +45,6 @@ const TodoList = () => {
               "Content-Type": "application/json"
             }
         }
-
         await fetch(urlApi, initApi);
     }
 
@@ -56,7 +55,7 @@ const TodoList = () => {
 
             let listTask = data.map(item => item.label);
             setArrayTask(listTask);
-            setTaskCount(listTask.length)
+            setTaskCount(listTask.length);
         }
         getTask();
     }, [])
