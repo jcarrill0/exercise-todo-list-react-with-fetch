@@ -11,3 +11,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.delTask {
+  cursor: pointer;
+  opacity: 0;
+  transition: all .6s ease;
+}
+
+.list-group-item:hover .delTask {
+  opacity: .9;
+}
