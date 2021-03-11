@@ -20,8 +20,7 @@ const TodoList = () => {
         setTaskCount(arrayTask.length + 1 )
         //newListAPI([...arrayTask, task]);
         setTask("");
-    }
-
+    
     
     function deleteTask(itemTask) {
         const newTasks = arrayTask.filter(myTask =>  myTask !== itemTask);
@@ -46,11 +45,6 @@ const TodoList = () => {
             }
         }
         await fetch(urlApi, initApi);
-    }
-
-    async function resetTasks () {
-        setArrayTask([]);
-        
     }
 
     useEffect(() => {
@@ -97,7 +91,7 @@ const TodoList = () => {
             <button 
                 type="button"
                 className="btn btn-danger mt-4 float-end"
-                onClick={resetTasks}
+                onClick={() => setArrayTask([])}
             >Resetear</button>
         </div>
     )
