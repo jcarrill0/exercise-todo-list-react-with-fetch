@@ -18,7 +18,7 @@ const TodoList = () => {
         }
         setArrayTask([...arrayTask, task])
         setTaskCount(arrayTask.length + 1 )
-        newListAPI([...arrayTask, task]);
+        //newListAPI([...arrayTask, task]);
         setTask("");
     }
 
@@ -27,7 +27,7 @@ const TodoList = () => {
         const newTasks = arrayTask.filter(myTask =>  myTask !== itemTask);
         setArrayTask(newTasks);
         setTaskCount([arrayTask.length - 1])
-        newListAPI(newTasks);
+        //newListAPI(newTasks);
     }
 
     const newListAPI = async listTasks => {
@@ -51,8 +51,8 @@ const TodoList = () => {
 
     useEffect(() => {
         const getTask = async () => {
-            const res = await fetch(urlApi);
-            const data = await res.json();
+            const res = await fetch(urlApi),
+                  data = await res.json();
 
             let listTask = data.map(item => item.label);
             setArrayTask(listTask);
@@ -60,6 +60,10 @@ const TodoList = () => {
         }
         getTask();
     }, [])
+
+    useEffect(() => {
+        newListAPI(arrayTask);
+    }, [arrayTask])
 
     return (
         <div className="border w-50 px-5 py-3">
