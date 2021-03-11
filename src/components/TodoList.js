@@ -20,6 +20,7 @@ const TodoList = () => {
         setTaskCount(arrayTask.length + 1 )
         //newListAPI([...arrayTask, task]);
         setTask("");
+    }
     
     
     function deleteTask(itemTask) {
@@ -57,12 +58,12 @@ const TodoList = () => {
             setTaskCount(listTask.length);
         }
         getTask();
-    }, [])
+    }, []);
 
     useEffect(() => {
         newListAPI(arrayTask);
         setTaskCount(arrayTask.length);
-    }, [arrayTask])
+    }, [arrayTask]);
 
     return (
         <div className="border w-50 px-5 py-3">
