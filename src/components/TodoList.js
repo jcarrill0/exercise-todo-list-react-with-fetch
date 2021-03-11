@@ -48,6 +48,11 @@ const TodoList = () => {
         await fetch(urlApi, initApi);
     }
 
+    async function resetTasks () {
+        setArrayTask([]);
+        
+    }
+
     useEffect(() => {
         const getTask = async () => {
             const res = await fetch(urlApi),
@@ -62,6 +67,7 @@ const TodoList = () => {
 
     useEffect(() => {
         newListAPI(arrayTask);
+        setTaskCount(arrayTask.length);
     }, [arrayTask])
 
     return (
@@ -88,6 +94,11 @@ const TodoList = () => {
                     { `${taskCount} ${taskCount <= 1 ? 'item left' : 'items left'}` }
                 </li>
             </ul>
+            <button 
+                type="button"
+                className="btn btn-danger mt-4 float-end"
+                onClick={resetTasks}
+            >Resetear</button>
         </div>
     )
 }
